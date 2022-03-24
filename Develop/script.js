@@ -31,7 +31,7 @@ var inclUppercase = false;
 var inclNum = false;
 var inclSpChar = false;
 for(;!inclLowercase && !inclUppercase && !inclNum && !inclSpChar;){
-window.alert("Please select at least one of the following character options for your password: capital letters, lowercase letters, numbers, and/or special characters");
+window.alert("Please select at least one of the following character options for your password: lowercase letters, uppercase letters, numbers, and/or special characters");
 inclLowercase = window.confirm("Do you wish to include lowercase letters? Press 'OK' to confirm, or 'cancel' to deny");
 inclUppercase = window.confirm("Do you wish to include uppercase letters? Press 'OK' to confirm, or 'cancel' to deny");
 inclNum = window.confirm("Do you wish to include numbers? Press 'OK' to confirm, or 'cancel' to deny");
@@ -41,7 +41,7 @@ var interim = [];
 var passChar;
 var i=0;
 var pword;
-var tempPass = [];
+var tempPass = "";
 var index;
 if(inclLowercase){
   passChar = interim.concat(alphaLow);
@@ -77,7 +77,15 @@ if(inclLowercase){
   console.log(pword)
 }
 console.log(passChar);
-return "awesome";
+for(;i<numChar;i++){
+  index = Math.floor(Math.random()*passChar.length);
+  pword = tempPass.concat(passChar[index]);
+  tempPass = pword;
+  console.log(i);
+}
+console.log(pword);
+
+return "Your new password is: " + pword;
 }
 
 //password matches all selected prompts
