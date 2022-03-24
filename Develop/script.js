@@ -39,17 +39,42 @@ inclSpChar = window.confirm("Do you wish to include special characters? Press 'O
 //generate random password, ensuring 1 of each character type is selected
 var interim = [];
 var passChar;
+var i=0;
+var pword;
+var tempPass = [];
+var index;
 if(inclLowercase){
   passChar = interim.concat(alphaLow);
   interim = passChar;
+  index = Math.floor(Math.random()*alphaLow.length);
+  pword = alphaLow[index];
+  tempPass = pword;
+  i++;
+  console.log(pword)
+  console.log(i);
 }if(inclUppercase){
   passChar = interim.concat(alphaUp);
   interim = passChar;
+  index = Math.floor(Math.random()*alphaUp.length);
+  pword = tempPass.concat(alphaUp[index]);
+  tempPass = pword;
+  i++;
+  console.log(pword);
 }if(inclNum){
   passChar = interim.concat(num);
   interim = passChar;
+  index = Math.floor(Math.random()*num.length);
+  pword = tempPass.concat(num[index]);
+  tempPass = pword;
+  i++;
+  console.log(pword)
 }if(inclSpChar){
   passChar = interim.concat(special);
+  index = Math.floor(Math.random()*special.length);
+  pword = tempPass.concat(special[index]);
+  tempPass = pword;
+  i++;
+  console.log(pword)
 }
 console.log(passChar);
 return "awesome";
